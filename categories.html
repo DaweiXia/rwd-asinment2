@@ -1,0 +1,63 @@
+<head>
+<meta charset="utf8" />
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="assignment.css" rel="stylesheet">
+</head>
+
+<body>
+	<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html">Animals</a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="categories.html">Categories <span class="sr-only">(current)</span></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<ul class="nav nav-tabs"></ul>
+		<div id="myTabContent" class="tab-content"></div>
+	</div>
+
+	<script type="text/x-handlebars-template" id="category-template">
+		{{#each category}}
+			{{#if @first}}
+				<li class="active"><a href="#{{name}}" data-toggle="tab" aria-expanded="true">{{name}}</a></li>
+			{{else}}
+				<li><a href="#{{name}}" data-toggle="tab" aria-expanded="true">{{name}}</a></li>
+			{{/if}}
+			
+		{{/each}}
+	</script>
+
+	<script type="text/x-handlebars-template" id="animal-template">
+		{{#each category}}
+			{{#if @first}}
+				<div class="tab-pane fade active in" id="{{name}}">
+					{{> animalInfo}}
+				</div>
+			{{else}}
+				<div class="tab-pane fade" id="{{name}}">
+					{{> animalInfo}}
+				</div>
+			{{/if}}
+		{{/each}}
+	</script>
+	
+	<script src="js/handlebars-v3.0.3.js"></script>
+	<script src="AnimalsData.js"></script>
+	<script src="assignment.js"></script>
+</body>
